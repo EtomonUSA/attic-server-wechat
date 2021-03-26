@@ -44,7 +44,7 @@ export async function getWeChatIdentity(accessToken: IWeChatAccessToken): Promis
     catch (err) { e2 = err; }
 
     if (resp.status !== 200) {
-        throw new GenericError(`Could not locate WeChat identity`, 93001, 403, (
+        throw new GenericError(`Could not locate WeChat identity`,  2001, 403, (
             body || e2
         ) as any as IError);
     }
