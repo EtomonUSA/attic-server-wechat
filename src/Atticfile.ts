@@ -84,4 +84,4 @@ export class AtticServerWeChat implements IPlugin {
     }
 }
 
-export default AtticServerGoogle;
+export default AtticServerWeChat;
