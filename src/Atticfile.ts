@@ -58,7 +58,7 @@ export class AtticServerWeChat implements IPlugin {
             clientName: accessToken.clientName,
             lastName: '',
             phone: '',
-            email: `${body.openid}.wechat@${this.applicationContext.config.emailHostname}`,
+            email: `${body.openid}.wechat@${(global as any).ApplicatonContext.config.emailHostname}`,
             otherFields: body,
             source: {
                 href: `https://api.weixin.qq.com/sns/userinfo?openid=${body.openid}`
