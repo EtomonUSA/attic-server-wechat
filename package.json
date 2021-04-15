@@ -1,6 +1,6 @@
 {
     "name": "@etomon/attic-server-wechat",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "description": "A plugin for oauth with wechat on attic",
     "main": "lib/Atticfile.js",
     "publishConfig": {
