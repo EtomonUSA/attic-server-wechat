@@ -34,8 +34,8 @@ export class AtticServerWeChat implements IPlugin {
 
     }
 
-    public async getWeChatIdentity(accessToken: IWeChatAccessToken): Promise<IIdentityEntity> {
-        let resp = await fetch(`https://api.weixin.qq.com/sns/userinfo?openid=${accessToken.otherFields.openid}&access_token=${accessToken.token}`, {
+    public getWeChatIdentity = async (accessToken: IWeChatAccessToken): Promise<IIdentityEntity> => {
+            let resp = await fetch(`https://api.weixin.qq.com/sns/userinfo?openid=${accessToken.otherFields.openid}&access_token=${accessToken.token}`, {
             // headers: {
             //     'Authorization': `Bearer ${accessToken.token}`
             // }
@@ -58,7 +58,7 @@ export class AtticServerWeChat implements IPlugin {
             clientName: accessToken.clientName,
             lastName: '',
             phone: '',
-            email: `${body.openid}.wechat@${(global as any).ApplicatonContext.config.emailHostname}`,
+            email: `${body.openid}.wechat@${this.applicationContext.config.emailHostname}`,
             otherFields: body,
             source: {
                 href: `https://api.weixin.qq.com/sns/userinfo?openid=${body.openid}`
