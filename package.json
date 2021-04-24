@@ -50,6 +50,8 @@
         "@znetstar/attic-common": "^3"
     },
     "dependencies": {
+        "@types/lodash": "^4.14.168",
+        "lodash": "^4.17.21",
         "node-fetch": "^2.6.1",
         "tslib": "^2.0.1"
     }

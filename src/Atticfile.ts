@@ -13,6 +13,7 @@ import fetch from "node-fetch";
 import {IError} from "@znetstar/attic-common/lib/Error/IError";
 import {IIdentity} from "@znetstar/attic-common";
 import {IApplicationContext, IPlugin} from "@znetstar/attic-common/lib/Server";
+import * as _ from 'lodash';
 
 interface IIdentityEntityModel{
     externalId: string;
@@ -58,7 +59,7 @@ export class AtticServerWeChat implements IPlugin {
             clientName: accessToken.clientName,
             lastName: '',
             phone: '',
-            email: `${body.openid}.wechat@${this.applicationContext.config.emailHostname}`,
+            email: `${body.openid}.wechat@${_.get(this, 'applicationContext.config.emailHostname') || process.env.EMAIL_HOSTNAME}`,
             otherFields: body,
             source: {
                 href: `https://api.weixin.qq.com/sns/userinfo?openid=${body.openid}`
